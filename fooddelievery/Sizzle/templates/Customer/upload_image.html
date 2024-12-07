@@ -1,0 +1,20 @@
+{% extends 'NavBar/DeliveryNavBar.html' %}
+{% load static %}
+
+
+<html>
+<head>
+    <title>Upload Image</title>
+</head>
+<body>
+{% block body %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="file" name="image">
+        <button type="submit">Process Image</button>
+    </form>
+
+    <img src="{% static 'images/manchurian.jpeg' %}" alt="My Image">
+{% endblock %}
+</body>
+</html>

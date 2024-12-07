@@ -1,0 +1,52 @@
+.card {
+    border-radius: 0.5rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    cursor: pointer; /* Make the cards clickable */
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.card-text {
+    margin-bottom: 0.5rem;
+}
+
+.small {
+    font-size: 0.875rem;
+}
+
+.text-muted {
+    color: #6c757d;
+}
+
+.card-container {
+    display: flex;
+    flex-direction: column; /* Aligns items vertically */
+    gap: 50px; /* Creates space between cards */
+    overflow-y: scroll; /* Enables vertical scrolling */
+    height: 100vh; /* Adjust as needed */
+}
+
+.container {
+    text-align: center;
+}
+
+.element {
+    display: inline-block;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 100vh; /* Makes container full viewport height */
+}

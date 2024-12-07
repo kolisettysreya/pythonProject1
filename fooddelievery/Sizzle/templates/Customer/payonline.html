@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Online Payment</title>
+</head>
+<body>
+
+  <h1>Online Payment</h1>
+
+  <form action="your_payment_gateway_url" method="POST">
+    <input type="hidden" name="merchant_id" value="your_merchant_id">
+    <input type="hidden" name="order_id" value="unique_order_id">
+    <input type="hidden" name="amount" value="100.00">
+    <input type="hidden" name="currency" value="USD">
+    <input type="hidden" name="redirect_url" value="your_success_url">
+    <input type="hidden" name="cancel_url" value="your_failure_url">
+    <input type="hidden" name="hash" value="hash_value">
+
+    <button type="submit">Pay Now</button>
+  </form>
+
+</body>
+</html>

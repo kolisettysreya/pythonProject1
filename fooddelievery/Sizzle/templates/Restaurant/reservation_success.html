@@ -1,0 +1,31 @@
+{% extends 'NavBar/RestaurantNavBar.html' %}
+<html lang="en">
+<head>
+    <title>Reservation Success</title>
+    <style>
+        /* Styling */
+    </style>
+</head>
+<body>
+{% block body %}
+    <div class="container mt-4">
+        <div class="success-container">
+            <h2>Reservation Confirmed!</h2>
+            <br>
+            <p>Thank you for booking a table with us, {{ booking.name }}.</p>
+            <br>
+            <p>We will contact you at {{ booking.phone_number }} if necessary.</p>
+            <br>
+            <p>Your table for {{ booking.guests }} guests is reserved on {{ booking.arrival_date }} at {{ booking.arrival_time }}.</p>
+            <br.
+            <p><strong>Your Booking ID: </strong>{{ booking.id }}</p>
+            <br>
+            <div>
+                <a href="{% url 'restaurant:book_table' %}" class="btn btn-primary">Make Another Reservation</a>
+                <a href="{% url 'restaurant:cancel_booking' %}" class="btn btn-danger">Cancel Booking</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+</body>
+</html>

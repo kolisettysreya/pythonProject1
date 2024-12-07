@@ -1,0 +1,15 @@
+{% extends 'NavBar/DeliveryNavBar.html' %}
+{% load static %}
+
+<html>
+<head>
+    <title>Restaurant Information</title>
+</head>
+<body>
+{% block body %}
+    <h2>Restaurant Information</h2>
+    <p>Name: {{ restaurant.name }}</p>
+    <p>Rating: {{ restaurant.rating }}</p>
+{% endblock %}
+</body>
+</html>

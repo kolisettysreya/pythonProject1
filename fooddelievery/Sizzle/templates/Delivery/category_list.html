@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Categories</title>
+</head>
+<body>
+    <h1>Categories</h1>
+    <ul>
+        {% for category in object_list %}
+            <li>
+                <a href="{% url 'category_detail' pk=category.pk %}">{{ category.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

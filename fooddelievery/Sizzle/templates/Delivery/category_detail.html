@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ object.name }}</title>
+</head>
+<body>
+    <h1>{{ object.name }}</h1>
+    <ul>
+        {% for item in object.items.all %}
+            <li>
+                <a href="{% url 'item_detail' pk=item.pk %}">{{ item.name }}</a> - ${{ item.price }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

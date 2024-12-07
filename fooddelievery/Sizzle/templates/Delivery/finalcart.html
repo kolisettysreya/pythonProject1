@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Product Card</title>
+  <h1>My Cart</h1>
+  <style>
+    .card {
+      border: 0.5px solid #ccc;
+      border-radius: 3px;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .card-image {
+      width: 100px;
+      height: 100px;
+      margin-right: 20px;
+      float: left;
+    }
+    .card-details {
+      margin-left: 40px;
+    }
+    .price {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <img class="card-image" src="{% static 'images/cheesepizza.jpeg' %}" alt="Product 1">
+    <div class="card-details">
+      <h3>Cheese Pizza</h3>
+      <p>Price: <span class="price">₹100.00</span></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <img class="card-image" src="{% static 'images/chickenpizza.jpeg' %}" alt="Product 2">
+    <div class="card-details">
+      <h3>Chicken Pizza</h3>
+      <p>Price: <span class="price">₹250.00</span></p>
+    </div>
+  </div>
+
+  <p><b>Total Price: ₹350.00</b></p>
+<center>
+
+          <button type="button" class="btn btn-dark btn-lg btn-block">Payment procedure</button>
+</center>
+  <br><br><br>
+<a href="{% url 'customer:payment' %}">
+          <button type="button" class="btn btn-dark btn-lg btn-block">Pay with Cash</button></a>
+  <br><br><br>
+<a href="{% url 'customer:payonline' %}">
+          <button type="button" class="btn btn-dark btn-lg btn-block">Pay Online</button></a>
+</body>
+</html>

@@ -1,0 +1,58 @@
+/* Basic card styling */
+.cards-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows the cards to wrap to the next line if there is no space */
+  gap: 26px; /* Adds space between cards */
+}
+
+.card {
+  width: 18rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 180px;
+  object-fit: cover; /* Ensures the image maintains its aspect ratio */
+}
+
+/* This class is positioned over the image now */
+.overlay-text {
+  position: absolute;
+  top: 60%; /* Position in the middle of the image */
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the text */
+  width: 100%;
+  padding: 5px;
+  background-color: transparent; /* Semi-transparent background */
+  color: white;
+  font-size: 1rem;
+  text-align: center;
+  z-index: 1; /* Ensures it stays on top of the image */
+}
+
+/* Card body styling */
+.card-body {
+  padding: 17px;
+  position: relative; /* Keeps the body below the image */
+  z-index: 0;
+}
+
+/* Card text styling */
+.card-text {
+  font-size: 14px;
+  color: #333;
+}
+
+/* Card pop-up effect when clicked or hovered */
+.card:hover {
+  transform: scale(1.05); /* Make the card pop out */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+  z-index: 10;
+}

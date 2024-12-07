@@ -1,0 +1,11 @@
+/* Basic styling for the container */
+.container {
+  padding: 20px;
+}
+
+/* Styling for the background image */
+img {
+  height: auto; /* Adjust height as needed */
+  max-width: 100%; /* Ensure the image doesn't overflow the container */
+  object-fit: cover; /* Scales the image to fill the container while maintaining aspect ratio */
+}

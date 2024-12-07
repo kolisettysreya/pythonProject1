@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+{% extends 'NavBar/ProjectNavBar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    {% block body %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="{% static 'css/projectnavbar.css' %}">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+<body>
+    <div class="register-container">
+        <h2><b> Sign Up </b></h2>
+
+        <form method="post" action="{% url 'customer:SignUpLogic' %}">
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="password1" placeholder="Confirm Password" required>
+            <input type="text" name="first_name" placeholder="first_name" required>
+             <input type="text" name="last_name" placeholder="last_name" required>
+            <input type="submit" value="Register">
+        </form>
+        <p>Already have an account? <a href="{% url 'customer:SignInLogic' %}">Sign In</a></p>
+    </div>
+{% endblock %}
+</body>
+</html>

@@ -1,0 +1,237 @@
+{% extends 'NavBar/DeliveryNavBar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Delivery Page</title>
+  <link rel="stylesheet" type="text/css"  href="{% static 'css/file123.css' %}">
+</head>
+<body>
+  {% block body %}
+  <br>
+  {% for item in burgers %}
+        <div class="card mb-3" style="max-width: 640px;">
+            <div class="row g-0">
+                <div class="col-md-4 center-img-container">
+                    <br>
+                    <img src="{ % static 'images/vegb.jpg' % }" class="img-fluid rounded-start center-img" alt="{{ item.name }}">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ item.name }}</h5>
+                        <p class="card-text">{{ item.description }}</p>
+                        <div class="quantity-container">
+                            <button class="quantity-button" onclick="decreaseQuantity('{{ item.id }}-qty')">-</button>
+                            <input type="text" id="{{ item.id }}-qty" class="quantity-input" value="1" readonly>
+                            <button class="quantity-button" onclick="increaseQuantity('{{ item.id }}-qty')">+</button>
+                        </div>
+                        <div class="product">
+                            <h3>Product Name</h3>
+    <button class="btn btn-primary" onclick="location.href='{% url 'delivery:view_cart' %}'" >Add to Cart</button>
+</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br><br>
+    {% endfor %}
+
+    <div class="cart-container">
+        <h3>Cart</h3>
+        <div id="cart-items"></div>
+        <p>Total: ₹<span id="cart-total">0</span></p>
+    </div>
+<br><br><br>
+ <div class="card mb-3" style="max-width: 640px;">
+    <div class="row g-0">
+      <div class="col-md-4 center-img-container">
+        <br>
+        <img src="{% static 'images/vegb.jpg' %}" class="img-fluid rounded-start center-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Veg Burger</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <div class="quantity-container">
+            <button class="quantity-button" onclick="decreaseQuantity('veg-qty')">-</button>
+            <input type="text" id="veg-qty" class="quantity-input" value="1" readonly>
+            <button class="quantity-button" onclick="increaseQuantity('veg-qty')">+</button>
+          </div>
+          <div class="form-group form-check">
+              <input type="checkbox" name="items[]" class="form-check-input" value="{{ app.pk }}">
+              <label class="form-check-label">{{ app.name }}</label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+ <div class="card mb-3" style="max-width: 640px;">
+    <div class="row g-0">
+      <div class="col-md-4 center-img-container">
+        <br>
+        <img src="{% static 'images/chickenb.jpg' %}" class="img-fluid rounded-start center-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Chicken Burger</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <div class="quantity-container">
+            <button class="quantity-button" onclick="decreaseQuantity('chicken-qty')">-</button>
+            <input type="text" id="chicken-qty" class="quantity-input" value="1" readonly>
+            <button class="quantity-button" onclick="increaseQuantity('chicken-qty')">+</button>
+          </div>
+          <div class="form-group form-check">
+              <input type="checkbox" name="items[]" class="form-check-input" value="{{ app.pk }}">
+              <label class="form-check-label">{{ app.name }}</label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+ <div class="card mb-3" style="max-width: 640px;">
+    <div class="row g-0">
+      <div class="col-md-4 center-img-container">
+        <br>
+        <img src="{% static 'images/pannermahb.jpg' %}" class="img-fluid rounded-start center-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Panner Maharaja</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <div class="quantity-container">
+            <button class="quantity-button" onclick="decreaseQuantity('panner-qty')">-</button>
+            <input type="text" id="panner-qty" class="quantity-input" value="1" readonly>
+            <button class="quantity-button" onclick="increaseQuantity('panner-qty')">+</button>
+          </div>
+          <div class="form-group form-check">
+              <input type="checkbox" name="items[]" class="form-check-input" value="{{ app.pk }}">
+              <label class="form-check-label">{{ app.name }}</label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+ <div class="card mb-3" style="max-width: 640px;">
+    <div class="row g-0">
+      <div class="col-md-4 center-img-container">
+        <br>
+        <img src="{% static 'images/vegmahb.jpg' %}" class="img-fluid rounded-start center-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Veg Maharaja</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <div class="quantity-container">
+            <button class="quantity-button" onclick="decreaseQuantity('vegmah-qty')">-</button>
+            <input type="text" id="vegmah-qty" class="quantity-input" value="1" readonly>
+            <button class="quantity-button" onclick="increaseQuantity('vegmah-qty')">+</button>
+          </div>
+          <div class="form-group form-check">
+              <input type="checkbox" name="items[]" class="form-check-input" value="{{ app.pk }}">
+              <label class="form-check-label">{{ app.name }}</label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+ <div class="card mb-3" style="max-width: 640px;">
+    <div class="row g-0">
+      <div class="col-md-4 center-img-container">
+        <br>
+        <img src="{% static 'images/chickenmahb.jpg' %}" class="img-fluid rounded-start center-img" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title">Chicken Maharaja</h5>
+          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
+          <div class="quantity-container">
+            <button class="quantity-button" onclick="decreaseQuantity('panner-qty')">-</button>
+                        <input type="text" id="panner-qty" class="quantity-input" value="1" readonly>
+                        <button class="quantity-button" onclick="increaseQuantity('panner-qty')">+</button>
+                    </div>
+                    <button class="btn btn-primary" onclick="addToCart(1, 'panner-qty')">Add to Cart</button>
+                </div>
+          <div class="form-group form-check">
+              <input type="checkbox" name="items[]" class="form-check-input" value="{{ app.pk }}">
+              <label class="form-check-label">{{ app.name }}</label>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+   <div class="cart-container">
+    <h3>Cart</h3>
+    <div id="cart-items"></div>
+    <p>Total: ₹<span id="cart-total">0</span></p>
+  </div>
+  <script>
+    let cart = [];
+
+    function increaseQuantity(id) {
+      const qtyInput = document.getElementById(id);
+      let qty = parseInt(qtyInput.value);
+      qtyInput.value = qty + 1;
+    }
+
+    function decreaseQuantity(id) {
+      const qtyInput = document.getElementById(id);
+      let qty = parseInt(qtyInput.value);
+      if (qty > 1) {
+        qtyInput.value = qty - 1;
+      }
+    }
+
+    function addToCart(itemId, quantityId) {
+    const quantity = document.getElementById(quantityId).value;
+
+    fetch(`/add_to_cart/${itemId}/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': csrfToken, // Ensure CSRF token is included
+        },
+        body: JSON.stringify({
+            quantity: quantity,
+        }),
+    })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message) {
+                alert(data.message);
+                // Optionally update cart UI here
+            } else if (data.error) {
+                alert('Error: ' + data.error);
+            }
+        });
+}
+
+
+
+    function updateCart() {
+    fetch('/cartpage/') // Fetch cart data from the server
+        .then(response => response.json()) // Parse the response as JSON
+        .then(data => {
+            // Update the cart UI with the received data
+            // (e.g., update cart item list, total amount)
+        });
+}
+{% csrf_token %}
+
+  const csrfToken = '{{ csrf_token }}';
+</script>
+
+
+
+  {% endblock %}
+</body>
+</html>
